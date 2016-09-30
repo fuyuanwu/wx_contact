@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<view class="container-full">
+  <view class="dev-search flex x-center">
+  	<input placeholder="搜索" placeholder-class="placeholder text-center" bindinput="onInput"/>
+  	<i  class="fa fa-plus i-add" catchtap="goEdit"></i>
+  </view>
+  <scroll-view class='content' scroll-y="true" scroll-x="false" bindscrolltoupper="onScrolltoupper" bindscrolltolower="onScrolltolower" bindscroll="onScroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  		<view class="top"></view>
+  		<view class="index">{{'A'}}</view>
+			<view class="item-warp">
+				<view id="{{contact.contact_id}}" class="scroll-view-item {{contact.active ? 'active' : ''}} {{contact.hide ? 'hide' : ''}}" bindtap="onTap" wx:for="{{contacts}}" wx:for-item="contact" data-contact_id="{{contact.contact_id}}" data-index="{{index}}" data-active="{{contact.active}}"  bindtouchmove="onTouchmove" bindtouchstart="onTouchstart" bindtouchend="onTouchend" bindtouchcancel="onTouchcancel">
+					<view class="text">
+						{{contact.firstName + contact.lastName}}
+					</view>
+					<view class="handles">
+						<span class="remove" catchtap="doDeleteContact" data-contact_id="{{contact.contact_id}}" data-index="{{index}}">
+							删除
+						</span>
+					</view>
+				</view>
+			</view>
+  </scroll-view>
+</view>
+ <view class="abc-index color-primary">
+ 	<i>A</i>
+ 	<i>B</i>
+ 	<i>C</i>
+ 	<i>D</i>
+ 	<i>E</i>
+ 	<i>F</i>
+ 	<i>G</i>
+ 	<i>H</i>
+ 	<i>I</i>
+ 	<i>J</i>
+ 	<i>K</i>
+ 	<i>L</i>
+ 	<i>M</i>
+ 	<i>N</i>
+ 	<i>O</i>
+ 	<i>P</i>
+ 	<i>Q</i>
+ 	<i>U</i>
+ 	<i>V</i>
+ 	<i>W</i>
+ 	<i>X</i>
+ 	<i>Y</i>
+ 	<i>Z</i>
+ 	<i>#</i>
+ </view>

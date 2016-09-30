@@ -1,0 +1,40 @@
+<view class="container">
+	<view class="div-hearder flex flex-justify-c-start">
+		<view class="hearder">
+			<image src="./default.jpeg" alt="" mode="aspectFill"></image>
+		</view>	
+		<view class="div-name flex flex-justify-c-sb">
+			<view class="flex x-center name">
+				{{contact.firstName + contact.lastName}}
+			</view>	
+			<view class="flex x-center">
+				<i class="color-primary" data-contact_id="{{contact.contact_id}}" bindtap="goEdit">编辑</i>
+			</view>	
+		</view>	
+	</view>
+	<view class="div-content mt1">
+		<view class="div-phone flex flex-justify-c-sb mb1" wx:for="{{contact.phones}}" wx:for-item="phone">
+			<view class="phone">
+				<view class="label">{{phone.name}}1</view>
+				<view class="number">{{phone.number}}1</view>
+			</view>
+			<view class="call flex x-center">
+				<i class="fa fa-comment-o fa-lg color-primary mr1"></i>
+				<i class="fa fa-phone fa-lg color-primary"></i>
+			</view>	
+		</view>
+		<view class="div-phone flex flex-justify-c-sb mb1" wx:for="{{contact.mails}}" wx:for-item="mail">
+			<view class="phone">
+				<view class="label">{{mail.name}}2</view>
+				<view class="number">{{mail.mail}}2</view>
+			</view>
+			<view class="call flex x-center">
+				<i class="fa fa-comment-o fa-lg color-primary mr1"></i>
+				<i class="fa fa-phone fa-lg color-primary"></i>
+			</view>	
+		</view>
+	</view>
+	<view class="div-comment">
+		<input type="text" placeholder="备注" placeholder-class="placeholder" />
+	</view>
+</view>

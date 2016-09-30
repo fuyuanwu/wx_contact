@@ -1,0 +1,57 @@
+<view class="container">
+	<view class="div-hearder text-right">
+		<i  class="color-primary" bindtap="doSubmit">完成</i>
+	</view>
+	<view class="div-hearder flex flex-justify-c-start">
+		<view class="hearder">
+			<image src="../detail/default.jpeg" alt="" mode="aspectFill"></image>
+		</view>
+		<view class="w100 pl1">
+			<view class="item first-name">
+				<input type="text" data-name="contact.firstName" placeholder="姓氏" bindinput="onInput" value="{{contact.firstName}}"/>
+			</view>
+			<view class="item last-name">
+				<input type="text" data-name="contact.lastName" placeholder="名字" bindinput="onInput" value="{{contact.lastName}}"/>
+			</view>	
+			<view class="item company">
+				<input type="text" data-name="contact.company" placeholder="公司" bindinput="onInput" value="{{contact.company}}"/>
+			</view>	
+		</view>	
+	</view>
+	<view class="div-contact">
+		<view class="contact-item flex flex-justify-c-start" wx:for="{{contact.phones}}" wx:for-item="phone">
+			<view class="label item color-primary">
+				<i class="fa fa-minus-circle fa-lg color-red" data-index="{{index}}" bindtap="doDeletePhone"></i>
+				<span>{{phone.name}}</span>
+				<i class="fa fa-angle-right fa-lg color-gray"></i>
+			</view>
+			<view class="contact item">
+				<input type="text" data-name="contact.phones[{{index}}].number" value="{{phone.number}}" bindinput="onInput"/>
+			</view>
+		</view>
+		<view class="contact-item flex flex-justify-c-start">
+			<view class="w100 item color-primary">
+				<i class="fa fa-plus-circle fa-lg color-green" bindtap="doAddPhone"></i>
+				<span bindtap="doAddPhone">添加电话</span>
+			</view>
+		</view>
+	</view>
+	<view class="div-contact">
+		<view class="contact-item flex flex-justify-c-start" wx:for="{{contact.mails}}" wx:for-item="mail">
+			<view class="label item color-primary">
+				<i class="fa fa-minus-circle fa-lg color-red" data-index="{{index}}" bindtap="doDeleteMail"></i>
+				<span>{{mail.name}}</span>
+				<i class="fa fa-angle-right fa-lg color-gray"></i>
+			</view>
+			<view class="contact item ">
+				<input type="mail" data-name="contact.mails[{{index}}].mail" value="{{mail.mail}}" bindinput="onInput"/>
+			</view>
+		</view>
+		<view class="contact-item flex flex-justify-c-start">
+			<view class="w100 item color-primary">
+				<i class="fa fa-plus-circle fa-lg color-green" bindtap="doAddMail"></i>
+				<span bindtap="doAddMail">添加电子邮件</span>
+			</view>
+		</view>
+	</view>
+</view>
